@@ -1,0 +1,23 @@
+.form-card {
+    max-width: 600px;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 1em;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  

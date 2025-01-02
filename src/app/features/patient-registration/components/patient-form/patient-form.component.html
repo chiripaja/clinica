@@ -1,0 +1,117 @@
+<mat-card class="form-card ">
+  <mat-card-title>Registro de Paciente</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+      <mat-stepper orientation="vertical" [formGroup]="patientForm" #stepper>
+        <mat-step label="Datos Personales">
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field mt-2">
+              <mat-label>Tipo Documento</mat-label>
+              <mat-select formControlName="tipoDocumento">
+                <mat-option value="1">DNI</mat-option>
+                <mat-option value="2">Carnet de Extranjería</mat-option>
+                <mat-option value="3">Pasaporte</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>N°</mat-label>
+              <input matInput formControlName="numeroDocumento" placeholder="Numero de documento"/>
+              <mat-error *ngIf="patientForm.get('numeroDocumento')?.hasError('required')">
+                El número de documento es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Primer Nombre</mat-label>
+              <input matInput formControlName="primerNombre" />
+              <mat-error *ngIf="patientForm.get('primerNombre')?.hasError('required')">
+                El nombre es requerido.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Segundo Nombre</mat-label>
+              <input matInput formControlName="segundoNombre" />
+              <mat-error *ngIf="patientForm.get('segundoNombre')?.hasError('required')">
+                El apellido es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Apellido Paterno</mat-label>
+              <input matInput formControlName="apellidoPaterno" />
+              <mat-error *ngIf="patientForm.get('apellidoPaterno')?.hasError('required')">
+                El nombre es requerido.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Apellido Materno</mat-label>
+              <input matInput formControlName="apellidoMaterno" />
+              <mat-error *ngIf="patientForm.get('apellidoMaterno')?.hasError('required')">
+                El apellido es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Género</mat-label>
+              <mat-select formControlName="genero">
+                <mat-option value="1">Masculino</mat-option>
+                <mat-option value="2">Femenino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-fab extended matStepperNext>
+              <mat-icon>arrow_right_alt</mat-icon>
+              Siguiente
+            </button>
+          </div>
+         
+        </mat-step>
+        <!-- Paso 2: Contacto -->
+        <mat-step label="Contacto">
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Correo Electrónico</mat-label>
+              <input matInput formControlName="email" />
+              <mat-error *ngIf="patientForm.get('email')?.hasError('required')">
+                El correo es requerido.
+              </mat-error>
+              <mat-error *ngIf="patientForm.get('email')?.hasError('email')">
+                Introduce un correo válido.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Celular</mat-label>
+              <input matInput type="tel" formControlName="celular" />
+              <mat-error *ngIf="patientForm.get('celular')?.hasError('required')">
+                El celular es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="patientForm.invalid">
+              Registrar
+            </button>
+            <button mat-button matStepperPrevious>Regresar</button>
+            <button mat-button type="reset" (click)="onReset()">Limpiar</button>
+          </div>
+        </mat-step>
+     
+      </mat-stepper>
+    </form>
+  </mat-card-content>
+</mat-card>
