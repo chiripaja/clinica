@@ -18,6 +18,8 @@ import { PatientFormComponent } from './features/patient-registration/components
 import { PatientListComponent } from './features/patient-registration/components/patient-list/patient-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { AdmissionFormComponent } from './features/admission/components/admission-form/admission-form.component';
+import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MaterialModule } from './material/material.module';
     NavbarAdminComponent,
     RegisterPatientComponent,
     PatientFormComponent,
-    PatientListComponent
+    PatientListComponent,
+    AdmissionFormComponent,
+    AdmissionRegisterComponent
   ],
   imports: [
     BrowserModule,

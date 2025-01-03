@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.margin-dynamic {
+    margin-top: var(--mt-value, 0);
+    background-color: yellow; // Para debug visual
+  }
