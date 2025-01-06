@@ -1,0 +1,65 @@
+
+
+<div class="container mat-elevation-z8">
+    <h2 class="text-center">Registro de Proveedor</h2>
+  
+    <form [formGroup]="proveedorForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Nombre del proveedor</mat-label>
+        <input matInput formControlName="nombre_proveedor" required />
+        <mat-error *ngIf="proveedorForm.get('nombre_proveedor')?.hasError('required')">
+          Este campo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>RUC</mat-label>
+        <input matInput formControlName="ruc" required />
+        <mat-error *ngIf="proveedorForm.get('ruc')?.hasError('required')">
+          Este campo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Teléfono</mat-label>
+        <input matInput formControlName="telefono" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="proveedorForm.get('email')?.hasError('email')">
+          Ingrese un correo válido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Tipo de proveedor</mat-label>
+        <mat-select formControlName="tipo_proveedor" required>
+          <mat-option *ngFor="let tipo of tiposProveedor" [value]="tipo">{{ tipo }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="proveedorForm.get('tipo_proveedor')?.hasError('required')">
+          Este campo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Observaciones</mat-label>
+        <textarea matInput formControlName="observaciones" rows="3"></textarea>
+      </mat-form-field>
+  
+      <div class="text-center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="proveedorForm.invalid">
+          Guardar
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="onNoClick()">Cerrar</button>
+      </div>
+     
+    </form>
+  </div>
+  

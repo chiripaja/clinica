@@ -6,6 +6,7 @@ import { NavbarAdminComponent } from './core/layout/navbar-admin/navbar-admin.co
 import { PatientFormComponent } from './features/patient-registration/components/patient-form/patient-form.component';
 import { PatientListComponent } from './features/patient-registration/components/patient-list/patient-list.component';
 import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
+import { RegisterSupplierComponent } from './features/supplier-registration/pages/register-supplier/register-supplier.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       { path: 'px', component: PatientFormComponent },
       { path: 'tabla', component: PatientListComponent },
-      { path: 'admision', component: AdmissionRegisterComponent }
+      { path: 'admision', component: AdmissionRegisterComponent },
+      { path: 'supplier', component: RegisterSupplierComponent }
     ]
   },
   { path: '**', redirectTo: '' }

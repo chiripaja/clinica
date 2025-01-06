@@ -20,6 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { AdmissionFormComponent } from './features/admission/components/admission-form/admission-form.component';
 import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
+import { RegisterSupplierComponent } from './features/supplier-registration/pages/register-supplier/register-supplier.component';
+import { SupplierFormComponent } from './features/supplier-registration/components/supplier-form/supplier-form.component';
+import { SupplierListComponent } from './features/supplier-registration/components/supplier-list/supplier-list.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { AdmissionRegisterComponent } from './features/admission/pages/admission
     PatientFormComponent,
     PatientListComponent,
     AdmissionFormComponent,
-    AdmissionRegisterComponent
+    AdmissionRegisterComponent,
+    RegisterSupplierComponent,
+    SupplierFormComponent,
+    SupplierListComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,8 @@ import { AdmissionRegisterComponent } from './features/admission/pages/admission
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
