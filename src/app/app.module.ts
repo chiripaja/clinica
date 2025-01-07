@@ -23,6 +23,9 @@ import { AdmissionRegisterComponent } from './features/admission/pages/admission
 import { RegisterSupplierComponent } from './features/supplier-registration/pages/register-supplier/register-supplier.component';
 import { SupplierFormComponent } from './features/supplier-registration/components/supplier-form/supplier-form.component';
 import { SupplierListComponent } from './features/supplier-registration/components/supplier-list/supplier-list.component';
+import { RegisterEmployeesComponent } from './features/employees-registration/pages/register-employees/register-employees.component';
+import { EmployeesFormComponent } from './features/employees-registration/components/employees-form/employees-form.component';
+import { EmployeesListComponent } from './features/employees-registration/components/employees-list/employees-list.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { SupplierListComponent } from './features/supplier-registration/componen
     AdmissionRegisterComponent,
     RegisterSupplierComponent,
     SupplierFormComponent,
-    SupplierListComponent
+    SupplierListComponent,
+    RegisterEmployeesComponent,
+    EmployeesFormComponent,
+    EmployeesListComponent
   ],
   imports: [
     BrowserModule,

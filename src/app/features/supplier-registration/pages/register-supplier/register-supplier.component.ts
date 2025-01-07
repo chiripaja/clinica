@@ -10,11 +10,14 @@ export class RegisterSupplierComponent {
   constructor(private dialog: MatDialog) {}
 
   // Método para abrir el modal con el formulario
-  openFormDialog(): void {
+  openFormDialog(element?:any): void {
+
     const dialogRef = this.dialog.open(SupplierFormComponent, {
       width: '500px',  // Ancho del modal
-      data: {}  // Puedes pasar datos al formulario si es necesario
+      data: element // Puedes pasar datos al formulario si es necesario
     });
+
+    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('El modal fue cerrado');

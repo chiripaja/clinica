@@ -1,0 +1,95 @@
+
+    <h2 mat-dialog-title>Registro de Empleados</h2>
+    <mat-dialog-content >
+    <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido Paterno</mat-label>
+        <input matInput formControlName="apellidoPaterno">
+        <mat-error *ngIf="empleadoForm.get('apellidoPaterno')?.hasError('required')">
+          El apellido paterno es requerido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido Materno</mat-label>
+        <input matInput formControlName="apellidoMaterno">
+        <mat-error *ngIf="empleadoForm.get('apellidoMaterno')?.hasError('required')">
+          El apellido materno es requerido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Primer Nombre</mat-label>
+        <input matInput formControlName="primerNombre">
+        <mat-error *ngIf="empleadoForm.get('primerNombre')?.hasError('required')">
+          El primer nombre es requerido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Segundo Nombre</mat-label>
+        <input matInput formControlName="segundoNombre">
+      </mat-form-field>
+  
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo Sexo</mat-label>
+        <mat-select formControlName="idSexo">
+          <mat-option *ngFor="let option of selecttipoSexo" [value]="option?.id">
+            {{ option?.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo Documento</mat-label>
+        <mat-select formControlName="idDocumento">
+          <mat-option *ngFor="let option of selecttipoDocumento" [value]="option?.id">
+            {{ option?.descripcion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="dni">
+        <mat-error *ngIf="empleadoForm.get('dni')?.hasError('required')">
+          El DNI es requerido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Empleado</mat-label>
+        <mat-select formControlName="tipoEmpleado">
+          <mat-option *ngFor="let option of tipoEmpleadoOptions" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="empleadoForm.get('tipoEmpleado')?.hasError('required')">
+          El tipo de empleado es requerido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="usuario">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Clave</mat-label>
+        <input matInput type="password" formControlName="clave">
+      </mat-form-field>
+  
+      <div class="text-center">
+      <button mat-raised-button color="primary" type="submit" [disabled]="empleadoForm.invalid">Guardar</button>
+      <button mat-raised-button color="warn" type="button" (click)="onNoClick()">Cerrar</button>
+      </div>
+    </form>
+</mat-dialog-content>

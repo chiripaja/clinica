@@ -7,6 +7,7 @@ import { PatientFormComponent } from './features/patient-registration/components
 import { PatientListComponent } from './features/patient-registration/components/patient-list/patient-list.component';
 import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
 import { RegisterSupplierComponent } from './features/supplier-registration/pages/register-supplier/register-supplier.component';
+import { RegisterEmployeesComponent } from './features/employees-registration/pages/register-employees/register-employees.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'px', component: PatientFormComponent },
       { path: 'tabla', component: PatientListComponent },
       { path: 'admision', component: AdmissionRegisterComponent },
-      { path: 'supplier', component: RegisterSupplierComponent }
+      { path: 'supplier', component: RegisterSupplierComponent },
+      { path: 'employees', component: RegisterEmployeesComponent }
     ]
   },
   { path: '**', redirectTo: '' }
