@@ -26,6 +26,9 @@ import { SupplierListComponent } from './features/supplier-registration/componen
 import { RegisterEmployeesComponent } from './features/employees-registration/pages/register-employees/register-employees.component';
 import { EmployeesFormComponent } from './features/employees-registration/components/employees-form/employees-form.component';
 import { EmployeesListComponent } from './features/employees-registration/components/employees-list/employees-list.component';
+import { RegisterCatalogsComponent } from './features/catalogs-registration/pages/register-catalogs/register-catalogs.component';
+import { CatalogsFormComponent } from './features/catalogs-registration/components/catalogs-form/catalogs-form.component';
+import { CatalogsListComponent } from './features/catalogs-registration/components/catalogs-list/catalogs-list.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { EmployeesListComponent } from './features/employees-registration/compon
     SupplierListComponent,
     RegisterEmployeesComponent,
     EmployeesFormComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    RegisterCatalogsComponent,
+    CatalogsFormComponent,
+    CatalogsListComponent
   ],
   imports: [
     BrowserModule,

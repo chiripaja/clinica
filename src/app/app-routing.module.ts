@@ -8,6 +8,7 @@ import { PatientListComponent } from './features/patient-registration/components
 import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
 import { RegisterSupplierComponent } from './features/supplier-registration/pages/register-supplier/register-supplier.component';
 import { RegisterEmployeesComponent } from './features/employees-registration/pages/register-employees/register-employees.component';
+import { RegisterCatalogsComponent } from './features/catalogs-registration/pages/register-catalogs/register-catalogs.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'tabla', component: PatientListComponent },
       { path: 'admision', component: AdmissionRegisterComponent },
       { path: 'supplier', component: RegisterSupplierComponent },
-      { path: 'employees', component: RegisterEmployeesComponent }
+      { path: 'employees', component: RegisterEmployeesComponent },
+      { path: 'catalogos', component: RegisterCatalogsComponent }
     ]
   },
   { path: '**', redirectTo: '' }
