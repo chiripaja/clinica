@@ -10,15 +10,19 @@ import { CatalogosService } from '../../../../core/services/catalogos.service';
   styleUrls: ['./catalogs-list.component.scss']
 })
 export class CatalogsListComponent {
- displayedColumns: string[] = ['id_empleado', 'primerNombre', 'dni', 'estado', 'acciones'];
+ displayedColumns: string[] = ['nombre', 'laboratorio', 'lote', 'fechavencimiento', 'acciones'];
   dataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @Output() openFormDialog = new EventEmitter<void>(); 
   catalogosService=inject(CatalogosService)
 
+  ngOnInit(): void {
+    this.loadEmployees()
+  }
   loadEmployees(): void {
     this.catalogosService.catalogos$.subscribe((empleados: any[]) => {
+  
       this.dataSource.data = empleados;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -30,5 +34,8 @@ export class CatalogsListComponent {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  openDialog(element:any): void {
+    this.openFormDialog.emit(element);  
   }
 }

@@ -20,7 +20,6 @@ export class EmployeesListComponent {
  
 
   openDialog(element:any): void {
-    
     this.openFormDialog.emit(element);  
   }
   ngOnInit(): void {

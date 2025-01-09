@@ -1,1 +1,67 @@
-<p>catalogs-form works!</p>
+<h2 mat-dialog-title>{{ data ? 'Editar' : 'Crear' }} Producto</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" required />
+    <mat-error *ngIf="form.get('nombre')?.invalid">Este campo es requerido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Concentración</mat-label>
+    <input matInput formControlName="concentracion" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Presentación</mat-label>
+    <input matInput formControlName="presentacion" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Forma Farmacéutica</mat-label>
+    <input matInput formControlName="formafarmaceutica" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Laboratorio</mat-label>
+    <input matInput formControlName="laboratorio" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Lote</mat-label>
+    <input matInput formControlName="lote" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Fecha de Vencimiento</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="fechavencimiento" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Precio de Venta</mat-label>
+    <input matInput type="number" formControlName="precioventa" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Stock</mat-label>
+    <input matInput type="number" formControlName="stock" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Tipo de Servicio</mat-label>
+    <mat-select formControlName="tiposervicio">
+      <mat-option [value]="1">Farmacia</mat-option>
+      <mat-option [value]="2">Procedimientos</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="estado">Activo</mat-slide-toggle>
+
+  <div class="actions">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">
+      Guardar
+    </button>
+  </div>
+</form>
