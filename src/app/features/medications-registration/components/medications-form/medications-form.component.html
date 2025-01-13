@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>Registro de Medicamentos</h2>
+<mat-dialog-content >
+<form [formGroup]="medicamentoForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required>
+      <mat-error *ngIf="medicamentoForm.get('nombre')?.hasError('required')">
+        Nombre is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" required>
+      <mat-error *ngIf="medicamentoForm.get('descripcion')?.hasError('required')">
+        Descripción is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Presentación</mat-label>
+      <input matInput formControlName="presentacion" required>
+      <mat-error *ngIf="medicamentoForm.get('presentacion')?.hasError('required')">
+        Presentación is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Unidad de Medida</mat-label>
+      <input matInput formControlName="unidad_medida" required>
+      <mat-error *ngIf="medicamentoForm.get('unidad_medida')?.hasError('required')">
+        Unidad de medida is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Precio Compra</mat-label>
+      <input matInput type="number" formControlName="precio_compra" required>
+      <mat-error *ngIf="medicamentoForm.get('precio_compra')?.hasError('required')">
+        Precio de compra is required.
+      </mat-error>
+      <mat-error *ngIf="medicamentoForm.get('precio_compra')?.hasError('min')">
+        Precio de compra must be greater than 0.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Precio Venta</mat-label>
+      <input matInput type="number" formControlName="precio_venta" required>
+      <mat-error *ngIf="medicamentoForm.get('precio_venta')?.hasError('required')">
+        Precio de venta is required.
+      </mat-error>
+      <mat-error *ngIf="medicamentoForm.get('precio_venta')?.hasError('min')">
+        Precio de venta must be greater than 0.
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="medicamentoForm.invalid">
+      Submit
+    </button>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,64 @@
+.container {
+    max-width: 600px; /* Limit max-width for better visual design */
+    width: 100%;
+    margin: 20px auto; /* Center the form */
+    padding: 20px;
+    background-color: white; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for elevated look */
+  }
+  
+  h2.text-center {
+    font-size: 1.5rem; /* Increase the font size */
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px; /* Space between form fields */
+  }
+  
+  mat-form-field textarea {
+    width: 100%; /* Ensure textarea uses full width */
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-right: 8px;
+  }
+  
+  button[type="submit"] {
+    min-width: 120px; /* Ensure the button has a minimum width */
+  }
+  
+  button[type="button"] {
+    min-width: 120px;
+  }
+  
+  .text-center {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px; /* Less padding on smaller screens */
+      width: 95%; /* Allow form to take up more space */
+    }
+  
+    h2.text-center {
+      font-size: 1.3rem; /* Smaller header font size */
+    }
+  
+    mat-form-field {
+      margin-bottom: 12px; /* Reduce space between fields */
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  

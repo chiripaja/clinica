@@ -29,6 +29,9 @@ import { EmployeesListComponent } from './features/employees-registration/compon
 import { RegisterCatalogsComponent } from './features/catalogs-registration/pages/register-catalogs/register-catalogs.component';
 import { CatalogsFormComponent } from './features/catalogs-registration/components/catalogs-form/catalogs-form.component';
 import { CatalogsListComponent } from './features/catalogs-registration/components/catalogs-list/catalogs-list.component';
+import { RegisterMedicationsComponent } from './features/medications-registration/pages/register-medications/register-medications.component';
+import { MedicationsFormComponent } from './features/medications-registration/components/medications-form/medications-form.component';
+import { MedicationsListComponent } from './features/medications-registration/components/medications-list/medications-list.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { CatalogsListComponent } from './features/catalogs-registration/componen
     EmployeesListComponent,
     RegisterCatalogsComponent,
     CatalogsFormComponent,
-    CatalogsListComponent
+    CatalogsListComponent,
+    RegisterMedicationsComponent,
+    MedicationsFormComponent,
+    MedicationsListComponent
   ],
   imports: [
     BrowserModule,
