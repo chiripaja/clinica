@@ -1,0 +1,82 @@
+<div class="mat-elevation-z8">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Buscar</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Buscar Lotes"
+      />
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSource" matSort class="w-full">
+      <!-- Columnas -->
+      <ng-container matColumnDef="id_lote">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>id_lote</th>
+        <td mat-cell *matCellDef="let element">{{ element.id_lote }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="id_medicamento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>id_medicamento</th>
+        <td mat-cell *matCellDef="let element">{{ element.id_medicamento }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="numero_lote">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>numero_lote</th>
+        <td mat-cell *matCellDef="let element">{{ element.numero_lote }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fecha_fabricacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>fecha_fabricacion</th>
+        <td mat-cell *matCellDef="let element">{{ element.fecha_fabricacion }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fecha_vencimiento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>fecha_vencimiento</th>
+        <td mat-cell *matCellDef="let element">{{ element.fecha_vencimiento }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cantidad_inicial">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>cantidad_inicial</th>
+        <td mat-cell *matCellDef="let element">{{ element.cantidad_inicial }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cantidad_actual">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>cantidad_actual</th>
+        <td mat-cell *matCellDef="let element">{{ element.cantidad_actual }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="id_almacen">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>id_almacen</th>
+        <td mat-cell *matCellDef="let element">{{ element.id_almacen }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="precio_compra_lote">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>precio_compra_lote</th>
+        <td mat-cell *matCellDef="let element">{{ element.precio_compra_lote }}</td>
+      </ng-container>
+  
+   
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="openDialog(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteSupplier(element.id_medicamento)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Header y filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 100]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+  

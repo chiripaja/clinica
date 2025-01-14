@@ -16,7 +16,7 @@ import { NavbarAdminComponent } from './core/layout/navbar-admin/navbar-admin.co
 import { RegisterPatientComponent } from './features/patient-registration/pages/register-patient/register-patient.component';
 import { PatientFormComponent } from './features/patient-registration/components/patient-form/patient-form.component';
 import { PatientListComponent } from './features/patient-registration/components/patient-list/patient-list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule  } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { AdmissionFormComponent } from './features/admission/components/admission-form/admission-form.component';
 import { AdmissionRegisterComponent } from './features/admission/pages/admission-register/admission-register.component';
@@ -33,7 +33,12 @@ import { RegisterMedicationsComponent } from './features/medications-registratio
 import { MedicationsFormComponent } from './features/medications-registration/components/medications-form/medications-form.component';
 import { MedicationsListComponent } from './features/medications-registration/components/medications-list/medications-list.component';
 
+import { RegisterLotsComponent } from './features/lots-registration/pages/register-lots/register-lots.component';
+import { LotsFormComponent } from './features/lots-registration/components/lots-form/lots-form.component';
+import { LotsListComponent } from './features/lots-registration/components/lots-list/lots-list.component';
+import { CustomSelectComponent } from './shared/components/custom-select/custom-select.component';
 
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +61,11 @@ import { MedicationsListComponent } from './features/medications-registration/co
     CatalogsListComponent,
     RegisterMedicationsComponent,
     MedicationsFormComponent,
-    MedicationsListComponent
+    MedicationsListComponent,
+    RegisterLotsComponent,
+    LotsFormComponent,
+    LotsListComponent,
+    CustomSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,8 @@ import { MedicationsListComponent } from './features/medications-registration/co
     HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
-    
+    FormsModule ,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

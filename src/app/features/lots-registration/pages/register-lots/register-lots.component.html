@@ -1,0 +1,6 @@
+<div class="container">
+    <button mat-raised-button color="primary" class="btnadd" (click)="openFormDialog()">
+        Agregar Lotes
+    </button>
+    <app-lots-list (openFormDialog)="openFormDialog($event)" />
+</div>

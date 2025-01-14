@@ -1,0 +1,24 @@
+<mat-form-field appearance="fill" class="form-field">
+  <mat-label>Selecciona una opción</mat-label>
+  <mat-select
+    [value]="selectedValue"
+    (selectionChange)="onOptionSelected($event.value)"
+  >
+    <!-- Input de búsqueda -->
+    <mat-option>
+      <input
+        matInput
+        placeholder="Buscar"
+        [formControl]="searchControl"
+      />
+    </mat-option>
+
+    <!-- Opciones filtradas -->
+    <mat-option
+      *ngFor="let option of filteredOptions"
+      [value]="option.value"
+    >
+      {{ option.label }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

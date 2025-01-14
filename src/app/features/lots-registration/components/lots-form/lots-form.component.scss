@@ -1,0 +1,114 @@
+.container {
+    max-width: 600px; /* Limit max-width for better visual design */
+    width: 100%;
+    margin: 20px auto; /* Center the form */
+    padding: 20px;
+    background-color: white; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for elevated look */
+  }
+  
+  h2.text-center {
+    font-size: 1.5rem; /* Increase the font size */
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px; /* Space between form fields */
+  }
+  
+  mat-form-field textarea {
+    width: 100%; /* Ensure textarea uses full width */
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-right: 8px;
+  }
+  
+  button[type="submit"] {
+    min-width: 120px; /* Ensure the button has a minimum width */
+  }
+  
+  button[type="button"] {
+    min-width: 120px;
+  }
+  
+  .text-center {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px; /* Less padding on smaller screens */
+      width: 95%; /* Allow form to take up more space */
+    }
+  
+    h2.text-center {
+      font-size: 1.3rem; /* Smaller header font size */
+    }
+  
+    mat-form-field {
+      margin-bottom: 12px; /* Reduce space between fields */
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .ng-select.custom {
+    border:1px solid gray;
+    min-height: 0px;
+    
+    //background-color: gray;
+    box-shadow: 2px;
+}
+.ng-select.custom .ng-select-container  {            
+    min-height: 0px;
+    border-radius: 0;
+    background-color: red;
+}
+.options{
+  background-color: red;
+}
+::ng-deep .ng-dropdown-panel {
+  background-color: #f9f9f9; /* Fondo del panel de opciones */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 5px;
+}
+
+::ng-deep .ng-option {
+  background-color: lightblue; /* Fondo de las opciones */
+  color: darkblue; /* Color del texto */
+  padding: 10px;
+}
+
+::ng-deep .ng-option:hover {
+  background-color: navy; /* Fondo al pasar el mouse */
+  color: white;
+}
+
+::ng-deep .ng-select .ng-select-container {
+  color: black; /* Texto negro para la opción seleccionada */
+
+}
+
+::ng-deep .ng-select .ng-value {
+  color: black !important; /* Asegura que el texto sea negro */
+}

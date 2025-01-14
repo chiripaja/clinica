@@ -10,6 +10,7 @@ import { RegisterSupplierComponent } from './features/supplier-registration/page
 import { RegisterEmployeesComponent } from './features/employees-registration/pages/register-employees/register-employees.component';
 import { RegisterCatalogsComponent } from './features/catalogs-registration/pages/register-catalogs/register-catalogs.component';
 import { RegisterMedicationsComponent } from './features/medications-registration/pages/register-medications/register-medications.component';
+import { RegisterLotsComponent } from './features/lots-registration/pages/register-lots/register-lots.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'supplier', component: RegisterSupplierComponent },
       { path: 'employees', component: RegisterEmployeesComponent },
       { path: 'catalogos', component: RegisterCatalogsComponent },
-      { path: 'medicamentos', component: RegisterMedicationsComponent }
+      { path: 'medicamentos', component: RegisterMedicationsComponent },
+      { path: 'lots', component: RegisterLotsComponent },
     ]
   },
   { path: '**', redirectTo: '' }
