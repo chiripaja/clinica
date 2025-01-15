@@ -44,10 +44,15 @@
       <mat-label>Cantidad Actual</mat-label>
       <input matInput type="number" formControlName="cantidad_actual" />
     </mat-form-field>
-  
-    <mat-form-field appearance="fill" class="form-field">
-      <mat-label>ID Almacén</mat-label>
-      <input matInput formControlName="id_almacen" />
+
+
+    <mat-form-field>
+      <mat-label>Almacen</mat-label>
+      <mat-select formControlName="id_almacen">
+        <mat-option *ngFor="let data of optionsAlmacen" [value]="data.id">
+          {{ data.nombre }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   
     <mat-form-field appearance="fill" class="form-field">

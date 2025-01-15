@@ -14,4 +14,7 @@ export class TipogeneralService {
   getTipoSexo(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/tiposexo`)
   }
+  getAlmacen(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/almacen`)
+  }
 }

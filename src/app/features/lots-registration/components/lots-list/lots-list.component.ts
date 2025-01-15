@@ -22,7 +22,8 @@ export class LotsListComponent {
     'cantidad_inicial',
     'cantidad_actual',
     'id_almacen',
-    'precio_compra_lote'
+    'precio_compra_lote',
+    'acciones'
   ];
   dataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;

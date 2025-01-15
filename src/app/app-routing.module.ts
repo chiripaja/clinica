@@ -11,13 +11,14 @@ import { RegisterEmployeesComponent } from './features/employees-registration/pa
 import { RegisterCatalogsComponent } from './features/catalogs-registration/pages/register-catalogs/register-catalogs.component';
 import { RegisterMedicationsComponent } from './features/medications-registration/pages/register-medications/register-medications.component';
 import { RegisterLotsComponent } from './features/lots-registration/pages/register-lots/register-lots.component';
+import { RegisterPatientComponent } from './features/patient-registration/pages/register-patient/register-patient.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
   {
     path: 'admin', component: NavbarAdminComponent,
     children: [
-      { path: 'px', component: PatientFormComponent },
+      { path: 'px', component: RegisterPatientComponent },
       { path: 'tabla', component: PatientListComponent },
       { path: 'admision', component: AdmissionRegisterComponent },
       { path: 'supplier', component: RegisterSupplierComponent },

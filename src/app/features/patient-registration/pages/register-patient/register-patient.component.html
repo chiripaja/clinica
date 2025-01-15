@@ -1,1 +1,9 @@
-<p>register-patient works!</p>
+<div class="container">
+    <!-- Botón para abrir el modal con el formulario -->
+    <button mat-raised-button color="primary" class="btnadd" (click)="openFormDialog()">
+      Agregar Paciente
+    </button>
+  
+    <!-- Lista de proveedores -->
+    <app-patient-list (openFormDialog)="openFormDialog($event)"></app-patient-list>
+  </div>
