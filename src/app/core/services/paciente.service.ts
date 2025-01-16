@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/app/environment/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,5 +41,23 @@ export class PacienteService {
     return this.http.delete<any>(`${this.baseUrl}/${id}`).pipe(
       tap(() => this.fetchPaciente()) 
     );
+  }
+  buscarPorNroDocumento(nroDocumento: string): Observable<any> {
+    const url = `${this.baseUrl}/buscarnrodoc/${nroDocumento}`;
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = 'Error desconocido';
+    if (error.error instanceof ErrorEvent) {
+      // Error del lado del cliente
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Error del lado del servidor
+      errorMessage = `Código: ${error.status}, Mensaje: ${error.message}`;
+    }
+    return throwError(() => new Error(errorMessage));
   }
 }

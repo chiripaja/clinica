@@ -62,10 +62,10 @@ export class LotsFormComponent {
     
     if (this.lotesForm.valid) {
       const data = this.lotesForm.value;
-      console.log(data)
+   
       if (this.data && this.data.id_lote) {
         data.id_lote = this.data.id_lote;
-        console.log(data)
+  
         this.lotesService.updateLotes(this.data.id_lote, data).subscribe({
           next: (response) => {
             this.alertsweetService.mostrarExito("Lote actualizado exitosamente");

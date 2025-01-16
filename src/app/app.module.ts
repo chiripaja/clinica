@@ -39,6 +39,8 @@ import { LotsListComponent } from './features/lots-registration/components/lots-
 import { CustomSelectComponent } from './shared/components/custom-select/custom-select.component';
 
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AttentionComponent } from './features/patient-care/attention/attention.component';
+import { ListComponent } from './features/patient-care/list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     RegisterLotsComponent,
     LotsFormComponent,
     LotsListComponent,
-    CustomSelectComponent
+    CustomSelectComponent,
+    AttentionComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

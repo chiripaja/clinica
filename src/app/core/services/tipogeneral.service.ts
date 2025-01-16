@@ -17,4 +17,7 @@ export class TipogeneralService {
   getAlmacen(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/almacen`)
   }
+  getFF(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/fuentefinancimento`)
+  }
 }

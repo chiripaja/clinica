@@ -89,6 +89,7 @@ export class PatientFormComponent {
           next: (response) => {
             this.alertsweetService.mostrarExito("Paciente creado exitosamente");
             this.pacienteForm.reset();
+            this.onNoClick();
           },
           error: (err) => {
             this.alertsweetService.mostrarError(err?.error?.error);

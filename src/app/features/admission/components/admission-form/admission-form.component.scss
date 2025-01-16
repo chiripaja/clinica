@@ -11,4 +11,77 @@ mat-card {
     display: block;
     margin: 20px auto;
   }
+
+  section {
+    display: table;
+  }
+  .form-card{
+    padding: 2em;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+  }
+  
+
+  .resultado {
+    background-color: #f4f7fa; /* Fondo claro para resaltar el contenido */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px; /* Espaciado superior */
+    max-width: 600px; /* Limitar el ancho del bloque */
+    margin-left: auto;
+    margin-right: auto; /* Centrado horizontal */
+    margin-bottom: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* Tamaño de fuente para el título */
+    color: #333; /* Color oscuro para el título */
+    margin-bottom: 15px; /* Espaciado inferior */
+  }
+  
+  p {
+    font-size: 1rem; /* Tamaño de fuente para los párrafos */
+    color: #555; /* Color gris oscuro para el texto */
+    margin-bottom: 10px; /* Espaciado entre párrafos */
+  }
+  
+  strong {
+    color: #333; /* Color más oscuro para las etiquetas */
+    font-weight: 600; /* Resaltar las etiquetas */
+  }
+  
+  .resultado p {
+    line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
+  }
+  
+  .resultado p:last-child {
+    margin-bottom: 0; /* Eliminar margen inferior en el último párrafo */
+  }
   

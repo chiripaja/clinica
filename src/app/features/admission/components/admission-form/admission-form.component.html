@@ -1,65 +1,120 @@
-<mat-card>
-    <mat-card-title>Registrar Atención</mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="atencionForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
-          <mat-label>Id Paciente</mat-label>
-          <input matInput formControlName="IdPaciente" type="number" required />
-          <mat-error *ngIf="atencionForm.get('IdPaciente')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
+<mat-card class="form-card">
+  <mat-card-title>Formulario de Admisión</mat-card-title>
+  <mat-card-content>
+    <mat-vertical-stepper [linear]="true" #stepper>
+      
+      <!-- Paso 1: Buscar Paciente -->
+      <mat-step [stepControl]="buscarForm">
+        <form [formGroup]="buscarForm" (ngSubmit)="buscarPaciente()" class="form-content">
+          <ng-template matStepLabel>Buscar al Paciente</ng-template>
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Número de Documento</mat-label>
+            <input matInput formControlName="nroDocumento" class="input-field" type="number"/>
+            <mat-error *ngIf="buscarForm.get('nroDocumento')?.hasError('required')">
+              Número de documento es requerido
+            </mat-error>
+          </mat-form-field>
+          <div class="stepper-buttons">
+            <button  mat-raised-button color="primary"  [disabled]="buscarForm.invalid" class="submit-btn">
+              <mat-icon>search</mat-icon>
+              Buscar
+            </button>
+          </div>
+        </form>
+
   
-        <mat-form-field appearance="fill">
-          <mat-label>Edad</mat-label>
-          <input matInput formControlName="Edad" type="number" required />
-          <mat-error *ngIf="atencionForm.get('Edad')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
+        <div *ngIf="paciente && paciente.PrimerNombre && paciente.ApellidoPaterno" class="resultado">
+          <h3>Paciente Encontrado</h3>
+          <p><strong>Nombre:</strong> {{ paciente.PrimerNombre }} {{ paciente.SegundoNombre }} {{ paciente.ApellidoPaterno }} {{ paciente.ApellidoMaterno }}</p>
+          <p><strong>Número de Documento:</strong> {{ paciente.NroDocumento }}</p>
+          <p><strong>Teléfono:</strong> {{ paciente.Telefono }}</p>
+         
+          <button mat-raised-button color="primary" [disabled]="buscarForm.invalid" matStepperNext >
+            <mat-icon>arrow_forward</mat-icon>
+            Continuar
+          </button>
+        </div>
+      
+       
+        <div *ngIf="errorMessage" class="error-message">
+          Paciente no encontrado.
+          <button mat-raised-button color="primary" class="btnadd" (click)="openFormDialog()">
+            Agregar Paciente
+          </button>
+        </div>
+    
+   
+     
   
-        <mat-form-field appearance="fill">
-          <mat-label>Fecha de Ingreso</mat-label>
-          <input matInput formControlName="FechaIngreso" [matDatepicker]="picker" required />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="atencionForm.get('FechaIngreso')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-  
- 
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Servicio de Ingreso</mat-label>
-          <mat-select formControlName="IdServicioIngreso">
-              <mat-option *ngFor="let item of serviciosSelect" [value]="item.id_servicio">{{item.nombre_servicio}}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="atencionForm.get('IdServicioIngreso')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-        
-        <mat-form-field appearance="fill">
-          <mat-label>Médico de Ingreso</mat-label>
-          <input matInput formControlName="IdMedicoIngreso" type="number" required />
-          <mat-error *ngIf="atencionForm.get('IdMedicoIngreso')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Fuente de Financiamiento</mat-label>
-          <input matInput formControlName="idFuenteFinanciamiento" type="number" required />
-          <mat-error *ngIf="atencionForm.get('idFuenteFinanciamiento')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Tipo de Servicio</mat-label>
-          <input matInput formControlName="IdTipoServicio" type="number" required />
-          <mat-error *ngIf="atencionForm.get('IdTipoServicio')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Origen de Atención</mat-label>
-          <input matInput formControlName="IdOrigenAtencion" type="number" required />
-          <mat-error *ngIf="atencionForm.get('IdOrigenAtencion')?.invalid">Campo obligatorio</mat-error>
-        </mat-form-field>
-  
-        <button mat-raised-button color="primary" type="submit" [disabled]="atencionForm.invalid">
-          Guardar Atención
-        </button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+      
+      </mat-step>
+
+      <!-- Paso 2: Registrar Atención -->
+      <mat-step [stepControl]="atencionForm">
+        <div *ngIf="paciente" class="resultado">
+          <h3>Paciente Encontrado</h3>
+          <p><strong>Nombre:</strong> {{ paciente.PrimerNombre }} {{ paciente.ApellidoPaterno }}</p>
+          <p><strong>Número de Documento:</strong> {{ paciente.NroDocumento }}</p>
+          <p><strong>Teléfono:</strong> {{ paciente.Telefono }}</p>
+        </div>
+        <form [formGroup]="atencionForm" (ngSubmit)="onSubmit()" class="form-content">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Fecha de Ingreso</mat-label>
+            <input matInput formControlName="FechaIngreso" [matDatepicker]="picker" required />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="atencionForm.get('FechaIngreso')?.invalid">Campo obligatorio</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Servicio de Ingreso</mat-label>
+            <mat-select formControlName="IdServicioIngreso">
+              <mat-option *ngFor="let item of serviciosSelect" [value]="item.id_servicio">{{ item.nombre_servicio }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="atencionForm.get('IdServicioIngreso')?.invalid">Campo obligatorio</mat-error>
+          </mat-form-field>
+
+          <div class="form-field">
+            <label>Médico de Ingreso</label>
+            <ng-select formControlName="IdMedicoIngreso">
+              <ng-option *ngFor="let data of medicosSelect" [value]="data.id_empleado">
+                {{ data.primerNombre }} {{ data.segundoNombre }} {{ data.apellidoPaterno }} {{ data.apellidoMaterno }}
+              </ng-option>
+            </ng-select>
+          </div>
+
+          <mat-form-field appearance="fill" class="form-field" style="margin-top: 2em;">
+            <mat-label>Fuente de Financiamiento</mat-label>
+            <mat-select formControlName="idFuenteFinanciamiento">
+              <mat-option *ngFor="let item of fuentefinanciamientoSelect" [value]="item.id_ff">{{ item.descripcion_ff }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="atencionForm.get('idFuenteFinanciamiento')?.invalid">Campo obligatorio</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Tipo de Servicio</mat-label>
+            <mat-select formControlName="IdTipoServicio">
+              <mat-option *ngFor="let item of tiposervicio" [value]="item.id">{{ item.descripcion }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="atencionForm.get('IdTipoServicio')?.invalid">Campo obligatorio</mat-error>
+          </mat-form-field>
+
+          <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+            <button mat-raised-button color="primary" mat-button matStepperPrevious class="submit-btn">
+              <mat-icon>arrow_back</mat-icon>
+              Atras
+            </button>
+            <button mat-raised-button color="primary" mat-button (click)="stepper.reset()" (click)="resetearDatospx()">
+              <mat-icon>refresh</mat-icon>
+              Reset
+            </button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="atencionForm.invalid" class="submit-btn">
+              Guardar Atención
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+    </mat-vertical-stepper>
+  </mat-card-content>
+</mat-card>
