@@ -27,17 +27,17 @@ export class PatientFormComponent {
         @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.pacienteForm = this.fb.group({
-      apellidoPaterno: ['', Validators.required],
-      apellidoMaterno: ['', Validators.required],
-      primerNombre: ['', Validators.required],
-      segundoNombre: [''],
-      fechaNacimiento: ['', Validators.required],
-      IdDocIdentidad: ['', Validators.required],
-      nroDocumento: ['', [Validators.required, Validators.minLength(8)]],
-      telefono: ['', Validators.required],
-      direccionDomicilio: ['', Validators.required],
-      idTipoSexo: [null, Validators.required],
-      idEstadoCivil: [null, Validators.required],
+      IdDocIdentidad: [1, Validators.required],
+      ApellidoPaterno: ['', Validators.required],
+      ApellidoMaterno: ['', Validators.required],
+      PrimerNombre: ['', Validators.required],
+      SegundoNombre: [''],
+      FechaNacimiento: ['', Validators.required],
+      NroDocumento: ['', [Validators.required, Validators.minLength(8)]], 
+      Telefono: ['', Validators.required],
+      DireccionDomicilio: ['', Validators.required],
+      IdTipoSexo: [1, Validators.required],
+      IdEstadoCivil: [1, Validators.required],
       idPaisDomicilio: [null],
       idDistritoDomicilio: [null],
     });
@@ -50,16 +50,32 @@ export class PatientFormComponent {
     this.tipogeneralService.getTipoDocumento().subscribe(data=>{
       this.documentSelect=data
     })
+    if (this.data && this.data.IdPaciente) {
+      console.log(this.data.idTipoSexo)
+      this.pacienteForm.patchValue({
+        IdDocIdentidad: this.data.IdDocIdentidad,
+        ApellidoPaterno: this.data.ApellidoPaterno,
+        ApellidoMaterno: this.data.ApellidoMaterno,
+        PrimerNombre: this.data.PrimerNombre,
+        SegundoNombre: this.data.SegundoNombre,
+        FechaNacimiento: this.data.FechaNacimiento,
+        NroDocumento: this.data.NroDocumento,
+        Telefono: this.data.Telefono,
+        DireccionDomicilio: this.data.DireccionDomicilio,
+        IdTipoSexo: this.data.IdTipoSexo,
+        IdEstadoCivil: this.data.IdEstadoCivil
+      });
+    }
   }
 
   onSubmit(): void {
     if (this.pacienteForm.valid) {
       const data = this.pacienteForm.value;
       console.log(data)
-      if (this.data && this.data.id_lote) {
-        data.id_lote = this.data.id_lote;
-        console.log(data)
-        this.pacienteService.updatePaciente(this.data.id_lote, data).subscribe({
+      if (this.data && this.data.IdPaciente) {
+        data.IdPaciente = this.data.IdPaciente;
+  
+        this.pacienteService.updatePaciente(this.data.IdPaciente, data).subscribe({
           next: (response) => {
             this.alertsweetService.mostrarExito("Paciente actualizado exitosamente");
             this.onNoClick();
@@ -75,6 +91,7 @@ export class PatientFormComponent {
             this.pacienteForm.reset();
           },
           error: (err) => {
+            this.alertsweetService.mostrarError(err?.error?.error);
             console.log("Error al crear Paciente", err);
           }
         });

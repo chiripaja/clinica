@@ -3,27 +3,27 @@
   <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()" class="form-container">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Apellido Paterno</mat-label>
-      <input matInput formControlName="apellidoPaterno" />
+      <input matInput formControlName="ApellidoPaterno" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Apellido Materno</mat-label>
-      <input matInput formControlName="apellidoMaterno" />
+      <input matInput formControlName="ApellidoMaterno" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Primer Nombre</mat-label>
-      <input matInput formControlName="primerNombre" />
+      <input matInput formControlName="PrimerNombre" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Segundo Nombre</mat-label>
-      <input matInput formControlName="segundoNombre" />
+      <input matInput formControlName="SegundoNombre" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Fecha de Nacimiento</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" />
+      <input matInput [matDatepicker]="picker" formControlName="FechaNacimiento" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -37,29 +37,29 @@
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Número de Documento</mat-label>
-      <input matInput formControlName="nroDocumento" />
+      <input matInput formControlName="NroDocumento" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Teléfono</mat-label>
-      <input matInput formControlName="telefono" />
+      <input matInput formControlName="Telefono" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Dirección</mat-label>
-      <textarea matInput formControlName="direccionDomicilio"></textarea>
+      <textarea matInput formControlName="DireccionDomicilio"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Sexo</mat-label>
-      <mat-select formControlName="idTipoSexo">
+      <mat-select formControlName="IdTipoSexo">
         <mat-option *ngFor="let sexo of sexoSelect" [value]="sexo.id">{{ sexo.descripcion }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Estado Civil</mat-label>
-      <mat-select formControlName="idEstadoCivil">
+      <mat-select formControlName="IdEstadoCivil">
         <mat-option *ngFor="let estado of estadosCiviles" [value]="estado.id">{{ estado.nombre }}</mat-option>
       </mat-select>
     </mat-form-field>

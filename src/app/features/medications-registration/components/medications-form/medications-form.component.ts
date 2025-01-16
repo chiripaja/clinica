@@ -64,7 +64,7 @@ export class MedicationsFormComponent {
 
   ngOnInit() {
     if (this.data && this.data.id_medicamento) {
-      console.log(this.data)
+    
       this.medicamentoForm.patchValue({
         nombre: this.data.nombre,
         descripcion: this.data.descripcion,
