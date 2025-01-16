@@ -1,1 +1,19 @@
-<p>list works!</p>
+<form [formGroup]="filtroForm" (ngSubmit)="onSubmit()" class="form-container">
+<mat-form-field appearance="fill" class="form-field">
+    <mat-label>Servicio de Ingreso</mat-label>
+    <mat-select formControlName="idservicio">
+      <mat-option *ngFor="let item of serviciosSelect" [value]="item.id_servicio">{{ item.nombre_servicio }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="filtroForm.get('idservicio')?.invalid">Campo obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fecha </mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="fecha" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="filtroForm.invalid">
+    Buscar
+  </button>
+  </form>

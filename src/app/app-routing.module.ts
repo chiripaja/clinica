@@ -12,6 +12,7 @@ import { RegisterCatalogsComponent } from './features/catalogs-registration/page
 import { RegisterMedicationsComponent } from './features/medications-registration/pages/register-medications/register-medications.component';
 import { RegisterLotsComponent } from './features/lots-registration/pages/register-lots/register-lots.component';
 import { RegisterPatientComponent } from './features/patient-registration/pages/register-patient/register-patient.component';
+import { ListComponent } from './features/patient-care/list/list.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'catalogos', component: RegisterCatalogsComponent },
       { path: 'medicamentos', component: RegisterMedicationsComponent },
       { path: 'lots', component: RegisterLotsComponent },
+      { path: 'atenciones', component: ListComponent },
     ]
   },
   { path: '**', redirectTo: '' }

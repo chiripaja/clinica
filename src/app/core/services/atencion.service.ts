@@ -43,6 +43,8 @@ export class AtencionService {
     );
   }
  
-
+  getAtencionsByFechasAndIdservicio(data: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/buscar`, data)
+  }
   
 }
