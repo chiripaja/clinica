@@ -53,6 +53,7 @@ export class LotsListComponent {
     }
   }
   deleteSupplier=async(id:number)=>{
+    console.log(id)
       const confirmed = await this.alertsweetService.confirmar("¿Desea Eliminar?");
       if (confirmed) {
         this.lotesService.deleteLotes(id).subscribe({

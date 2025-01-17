@@ -1,8 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { ServiciosService } from '../../../core/services/servicios.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AtencionService } from '../../../core/services/atencion.service';
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { AlertsweetService } from '../../../core/services/alertsweet.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -10,15 +13,17 @@ import { AtencionService } from '../../../core/services/atencion.service';
 })
 export class ListComponent {
   filtroForm: FormGroup;
-  serviciosService = inject(ServiciosService)
+  serviciosService = inject(ServiciosService);
+  atencionService = inject(AtencionService);
+  alertsweetService=inject(AlertsweetService);
   serviciosSelect: any[] = [];
-atencionService=inject(AtencionService)
-  constructor(private fb: FormBuilder) {
 
+  constructor(private fb: FormBuilder) {
     this.filtroForm = this.fb.group({
       idservicio: ['', [Validators.required]],
       fecha: ['', [Validators.required]]
     });
+    
   }
 
   ngOnInit(): void {
@@ -27,15 +32,48 @@ atencionService=inject(AtencionService)
     })
   }
 
+  displayedColumns: string[] = [
+    'FechaIngreso',
+    'servicio',
+    'paciente',
+    'nrodocumento',
+    'celular',
+    'acciones',
+  ];
+  dataSource = new MatTableDataSource<any>([]);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   onSubmit(): void {
     if (this.filtroForm.valid) {
-      console.log(this.filtroForm.value)
-      this.atencionService.getAtencionsByFechasAndIdservicio(this.filtroForm.value).subscribe(data=>{
-        console.log(data)
-      })
-     } else { 
-      console.log("no entro")
-     }
+      this.atencionService.getAtencionsByFechasAndIdservicio(this.filtroForm.value).subscribe({
+        next: (response) => {
+          this.dataSource.data = response;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        },
+        error: (err) => {
+          this.alertsweetService.mostrarInformacion("No se encontraron pacientes para esa fecha y esa especialidad")
+          this.dataSource.data = []
+        }
+      });
+      
+  }
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  atender=(data:any)=>{
+
+  }
+
+  hasData(): boolean {
+    return this.dataSource.data && this.dataSource.data.length > 0;
   }
 
 }

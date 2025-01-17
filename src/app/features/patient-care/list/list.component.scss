@@ -1,0 +1,28 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 16px; /* Espacio entre los campos */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  }
+  
+  .form-field {
+    flex: 1; /* Ambos campos ocuparán el mismo espacio */
+    min-width: 200px; /* Asegura un tamaño mínimo para evitar que se encojan demasiado */
+  }
+  
+  button[type="submit"] {
+    align-self: flex-start;
+    padding: 10px 24px;
+    font-weight: bold;
+  }
+  

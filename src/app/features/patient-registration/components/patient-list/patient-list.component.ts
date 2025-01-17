@@ -13,14 +13,12 @@ export class PatientListComponent {
  constructor() {}
   alertsweetService=inject(AlertsweetService);
   displayedColumns: string[] = [
-   
     'ApellidoPaterno',
     'ApellidoMaterno',
     'PrimerNombre',
     'SegundoNombre',
     'FechaNacimiento',
     'NroDocumento',
-   
     'acciones',
   ];
   dataSource = new MatTableDataSource<any>([]);
