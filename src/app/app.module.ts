@@ -41,6 +41,10 @@ import { CustomSelectComponent } from './shared/components/custom-select/custom-
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AttentionComponent } from './features/patient-care/attention/attention.component';
 import { ListComponent } from './features/patient-care/list/list.component';
+import { KardexPageComponent } from './features/inventory-management/pages/kardex-page/kardex-page.component';
+import { LotesTableComponent } from './features/inventory-management/components/lotes-table/lotes-table.component';
+import { StockTableComponent } from './features/inventory-management/components/stock-table/stock-table.component';
+import { MovimientosTableComponent } from './features/inventory-management/components/movimientos-table/movimientos-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +73,11 @@ import { ListComponent } from './features/patient-care/list/list.component';
     LotsListComponent,
     CustomSelectComponent,
     AttentionComponent,
-    ListComponent
+    ListComponent,
+    KardexPageComponent,
+    LotesTableComponent,
+    StockTableComponent,
+    MovimientosTableComponent
   ],
   imports: [
     BrowserModule,

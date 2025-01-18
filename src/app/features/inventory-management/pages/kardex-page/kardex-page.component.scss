@@ -1,0 +1,43 @@
+.custom-tab-container {
+    background-color: #f2f2f2; /* Fondo gris claro */
+    padding: 24px; /* Padding general */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  
+    .custom-tab-group {
+      background-color: #ffffff; /* Fondo blanco para el grupo de tabs */
+      border-radius: 8px; /* Bordes redondeados */
+      padding: 16px; /* Separación interna */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+  
+    mat-tab-header {
+      background-color: #e0e0e0; /* Fondo gris más oscuro para los tabs */
+      border-radius: 8px 8px 0 0; /* Bordes superiores redondeados */
+      padding: 8px; /* Espaciado interno del encabezado */
+    }
+  
+    mat-tab-label {
+      font-weight: bold; /* Negrita para las etiquetas */
+      color: #333333; /* Color oscuro para las etiquetas */
+    }
+  
+    mat-tab-label.mat-tab-label-active {
+      color: #1e88e5; /* Color azul para el tab activo */
+    }
+  
+    mat-tab-body {
+      padding: 16px; /* Padding interno de los contenidos */
+      background-color: #ffffff; /* Fondo blanco para el contenido */
+      border-radius: 0 0 8px 8px; /* Bordes inferiores redondeados */
+    }
+  
+    .tab-content {
+      padding: 16px; /* Espaciado adicional dentro del contenido */
+      background-color: #ffffff; /* Fondo blanco */
+      border: 1px solid #e0e0e0; /* Borde gris claro */
+      border-radius: 8px; /* Bordes redondeados */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+  }
+  

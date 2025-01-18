@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlertsweetService } from '../../../../core/services/alertsweet.service';
-import { MedicamentosService } from '../../../../core/services/medicamentos.service';
 import { LotesService } from '../../../../core/services/lotes.service';
 @Component({
   selector: 'app-lots-list',
