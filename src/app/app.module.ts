@@ -45,6 +45,8 @@ import { KardexPageComponent } from './features/inventory-management/pages/karde
 import { LotesTableComponent } from './features/inventory-management/components/lotes-table/lotes-table.component';
 import { StockTableComponent } from './features/inventory-management/components/stock-table/stock-table.component';
 import { MovimientosTableComponent } from './features/inventory-management/components/movimientos-table/movimientos-table.component';
+import { AnamnesisFormComponent } from './features/patient-care/attention/anamnesis-form/anamnesis-form.component';
+import { OrdersFormComponent } from './features/patient-care/attention/orders-form/orders-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +79,9 @@ import { MovimientosTableComponent } from './features/inventory-management/compo
     KardexPageComponent,
     LotesTableComponent,
     StockTableComponent,
-    MovimientosTableComponent
+    MovimientosTableComponent,
+    AnamnesisFormComponent,
+    OrdersFormComponent
   ],
   imports: [
     BrowserModule,

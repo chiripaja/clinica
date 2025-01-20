@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2em;
+}
+.container__textarea{
+    width: 100%;
+}
+.bg-white{
+    background-color: white;
+}

@@ -1,0 +1,52 @@
+<form [formGroup]="ordenesForm" class="ordenes-form" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Medicamentos</label>
+        <ng-select class="custom" formControlName="idmedicamento">
+          <ng-option *ngFor="let data of optionsMedicamento" [value]="data">
+            {{ data.nombre }}
+          </ng-option>
+        </ng-select>
+      </div>
+  
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cantidad</mat-label>
+        <input matInput type="number" formControlName="cantidad" placeholder="Ingrese la cantidad" required>
+        <mat-error *ngIf="ordenesForm.get('cantidad')?.hasError('required')">Cantidad requerida</mat-error>
+      </mat-form-field>
+      
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Observaciones</mat-label>
+        <input matInput type="text" formControlName="observaciones" placeholder="Ingrese observaciones" required>
+        
+        <mat-error *ngIf="ordenesForm.get('observaciones')?.hasError('required')">Observaciones requeridas</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" [disabled]="ordenesForm.invalid" class="form-button">Agregar</button>
+    </div>
+  </form>
+
+  <table >
+    <thead>
+      <th>Medicamento</th>
+      <th>Cantidad</th>
+      <th>Observaciones</th>
+      <th>Acciones</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaOrdenesFarmaciaPreProcesar">
+        <td>{{item?.nombremedicamento}}</td>
+        <td>{{item?.cantidad}}</td>
+        <td>{{item?.observaciones}}</td>
+        <td>
+          <button mat-icon-button color="warn" (click)="deleteMedicamento(item.idmedicamento)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ <button (click)="CrearOrdenFarmacia()">
+  Guardar y Continuar
+ </button>

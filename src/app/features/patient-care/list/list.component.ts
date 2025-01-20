@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlertsweetService } from '../../../core/services/alertsweet.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -16,9 +17,10 @@ export class ListComponent {
   serviciosService = inject(ServiciosService);
   atencionService = inject(AtencionService);
   alertsweetService=inject(AlertsweetService);
+
   serviciosSelect: any[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router: Router) {
     this.filtroForm = this.fb.group({
       idservicio: ['', [Validators.required]],
       fecha: ['', [Validators.required]]
@@ -70,6 +72,8 @@ export class ListComponent {
 
   atender=(data:any)=>{
 
+    const id = data?.IdAtencion;
+    this.router.navigate(['/admin/atenciones',id ]);
   }
 
   hasData(): boolean {

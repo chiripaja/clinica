@@ -1,1 +1,28 @@
-<p>attention works!</p>
+<div class="flex justify-center items-center min-h-screen p-4">
+    <mat-card class="w-full max-w-2xl mat-elevation-z4 p-4">
+      <mat-stepper #stepper linear>
+        <!-- Step 1: Anamnesis -->
+        <mat-step>
+          <ng-template matStepLabel>Anamnesis</ng-template>
+          <app-anamnesis-form></app-anamnesis-form>
+        </mat-step>
+  
+        <!-- Step 2: Ordenes Medicas -->
+        <mat-step>
+          <ng-template matStepLabel>Ordenes Medicas</ng-template>
+          <app-orders-form></app-orders-form>
+        </mat-step>
+  
+        <!-- Step 3: Done -->
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div class="flex justify-between">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </mat-card>
+  </div>
+  

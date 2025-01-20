@@ -17,6 +17,7 @@ import { KardexPageComponent } from './features/inventory-management/pages/karde
 import { LotesTableComponent } from './features/inventory-management/components/lotes-table/lotes-table.component';
 import { StockTableComponent } from './features/inventory-management/components/stock-table/stock-table.component';
 import { MovimientosTableComponent } from './features/inventory-management/components/movimientos-table/movimientos-table.component';
+import { AttentionComponent } from './features/patient-care/attention/attention.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dash', component: NavigationComponent },
@@ -32,16 +33,8 @@ const routes: Routes = [
       { path: 'medicamentos', component: RegisterMedicationsComponent },
       { path: 'lots', component: RegisterLotsComponent },
       { path: 'atenciones', component: ListComponent },
-      {
-        path: 'kardex',
-        component: KardexPageComponent,
-        children: [
-          { path: 'lotes', component: LotesTableComponent }, // Subruta para Lotes
-          { path: 'stock', component: StockTableComponent }, // Subruta para Stock
-          { path: 'movimientos', component: MovimientosTableComponent }, // Subruta para Movimientos
-          { path: '', redirectTo: 'lotes', pathMatch: 'full' } // Redirección por defecto
-        ]
-      }
+      { path: 'atenciones/:id', component: AttentionComponent },
+      {  path: 'kardex',   component: KardexPageComponent}
     ]
   },
   { path: '**', redirectTo: '' }

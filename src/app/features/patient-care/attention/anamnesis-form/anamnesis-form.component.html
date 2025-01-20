@@ -1,0 +1,18 @@
+<form [formGroup]="anamnesisForm" class="bg-white">
+    <div class="container">
+
+    
+    <mat-form-field appearance="fill" class="container__textarea">
+        <mat-label>Motivo Consulta</mat-label>
+        <textarea matInput formControlName="motivoconsulta" rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="container__textarea">
+        <mat-label>Examen Clinico</mat-label>
+        <textarea matInput formControlName="examenclinico" rows="3"></textarea>
+    </mat-form-field>
+</div>
+    <div>
+        <button mat-button matStepperNext>Next</button>
+    </div>
+</form>
